@@ -19,7 +19,7 @@ class Global {
   static TextEditingController contactController = TextEditingController();
   static TextEditingController emailController = TextEditingController();
   static TextEditingController addController = TextEditingController();
-  static TextEditingController locController = TextEditingController();
+  static TextEditingController positionController = TextEditingController();
   static TextEditingController socialFbController = TextEditingController();
   static TextEditingController socialInController = TextEditingController();
   static ImagePicker picker = ImagePicker();
@@ -31,7 +31,7 @@ class Global {
   static String contact = '';
   static String email = '';
   static String add = '';
-  static String location = '';
+  static String position = '';
   static String socialFB = '';
   static String socialIN = '';
   static bool company = true;

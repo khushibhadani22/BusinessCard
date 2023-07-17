@@ -172,6 +172,32 @@ class _DetailsState extends State<Details> {
                     height: height / 20,
                     width: width / 2,
                     child: TextFormField(
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return "Enter Your position....";
+                        }
+                        return null;
+                      },
+                      onSaved: (val) {
+                        setState(() {
+                          Global.position = Global.positionController.text;
+                        });
+                      },
+                      textInputAction: TextInputAction.next,
+                      controller: Global.positionController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Location-link",
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: height / 50,
+                  ),
+                  SizedBox(
+                    height: height / 20,
+                    width: width / 2,
+                    child: TextFormField(
                       keyboardType: TextInputType.number,
                       validator: (val) {
                         if (val!.isEmpty) {
@@ -255,32 +281,6 @@ class _DetailsState extends State<Details> {
                     child: TextFormField(
                       validator: (val) {
                         if (val!.isEmpty) {
-                          return "Enter Your location link....";
-                        }
-                        return null;
-                      },
-                      onSaved: (val) {
-                        setState(() {
-                          Global.location = Global.locController.text;
-                        });
-                      },
-                      textInputAction: TextInputAction.next,
-                      controller: Global.locController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: "Location-link",
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: height / 50,
-                  ),
-                  SizedBox(
-                    height: height / 20,
-                    width: width / 2,
-                    child: TextFormField(
-                      validator: (val) {
-                        if (val!.isEmpty) {
                           return "Enter Your social name....";
                         }
                         return null;
@@ -325,7 +325,7 @@ class _DetailsState extends State<Details> {
                     ),
                   ),
                   SizedBox(
-                    height: height / 50,
+                    height: height / 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -354,7 +354,7 @@ class _DetailsState extends State<Details> {
                             Global.contactController.clear();
                             Global.emailController.clear();
                             Global.addController.clear();
-                            Global.locController.clear();
+                            Global.positionController.clear();
                             Global.socialFbController.clear();
                             Global.socialInController.clear();
 
@@ -365,7 +365,7 @@ class _DetailsState extends State<Details> {
                               Global.contact = '';
                               Global.email = '';
                               Global.add = '';
-                              Global.location = '';
+                              Global.position = '';
                               Global.socialFB = '';
                               Global.socialIN = '';
                               Global.photo = null;
