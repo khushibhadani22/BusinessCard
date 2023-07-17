@@ -190,37 +190,87 @@ class _PDFState extends State<PDF> {
                   Container(
                     margin: const EdgeInsets.all(10),
                     width: width,
-                    height: height * 0.09,
+                    height: height * 0.1,
                     color: Colors.blueGrey.shade900,
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Icon(
-                          Icons.phone_android_outlined,
-                          color: Colors.blueGrey.shade300,
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.phone_android_outlined,
+                              color: Colors.blueGrey.shade300,
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Text(
+                              Global.contact,
+                              style: TextStyle(color: Colors.blueGrey.shade100),
+                            ),
+                          ],
                         ),
-                        Text(
-                          Global.contact,
-                          style: TextStyle(color: Colors.blueGrey.shade100),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.email_outlined,
+                              color: Colors.blueGrey.shade300,
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Text(
+                              Global.email,
+                              style: TextStyle(color: Colors.blueGrey.shade100),
+                            ),
+                          ],
                         ),
-                        Icon(
-                          Icons.email_outlined,
-                          color: Colors.blueGrey.shade300,
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_outlined,
+                              color: Colors.blueGrey.shade300,
+                            ),
+                            SizedBox(
+                              width: width * 0.02,
+                            ),
+                            Text(
+                              Global.add,
+                              style: TextStyle(color: Colors.blueGrey.shade100),
+                            ),
+                          ],
                         ),
-                        Text(
-                          Global.email,
-                          style: TextStyle(color: Colors.blueGrey.shade100),
-                        ),
-                        Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.blueGrey.shade300,
-                        ),
-                        Text(
-                          Global.add,
-                          style: TextStyle(color: Colors.blueGrey.shade100),
-                        )
                       ],
                     ),
+                    // child: Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //   children: [
+                    //     Icon(
+                    //       Icons.phone_android_outlined,
+                    //       color: Colors.blueGrey.shade300,
+                    //     ),
+                    //     Text(
+                    //       Global.contact,
+                    //       style: TextStyle(color: Colors.blueGrey.shade100),
+                    //     ),
+                    //     Icon(
+                    //       Icons.email_outlined,
+                    //       color: Colors.blueGrey.shade300,
+                    //     ),
+                    //     Text(
+                    //       Global.email,
+                    //       style: TextStyle(color: Colors.blueGrey.shade100),
+                    //     ),
+                    //     Icon(
+                    //       Icons.location_on_outlined,
+                    //       color: Colors.blueGrey.shade300,
+                    //     ),
+                    //     Text(
+                    //       Global.add,
+                    //       style: TextStyle(color: Colors.blueGrey.shade100),
+                    //     )
+                    //   ],
+                    // ),
                   ),
                 ],
               ),
@@ -228,22 +278,6 @@ class _PDFState extends State<PDF> {
           ],
         ),
       ),
-      // body: Column(
-      //   children: [
-      //     Padding(
-      //       padding: const EdgeInsets.all(1),
-      //       child: Image(
-      //         image: image,
-      //         fit: BoxFit.cover,
-      //       ),
-      //     ),
-      //     Padding(
-      //       padding: const EdgeInsets.only(left: 5),
-      //       child: Text(Global.companyName,
-      //           style: const TextStyle(color: Colors.white, fontSize: 13)),
-      //     ),
-      //   ],
-      // ),
 
       // floatingActionButton: FloatingActionButton(
       //   backgroundColor: const Color(0xff235566),
