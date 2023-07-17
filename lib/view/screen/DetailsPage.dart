@@ -187,7 +187,7 @@ class _DetailsState extends State<Details> {
                       controller: Global.positionController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: "Location-link",
+                        hintText: "Position",
                       ),
                     ),
                   ),
