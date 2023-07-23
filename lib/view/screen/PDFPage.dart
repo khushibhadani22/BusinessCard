@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+
+import '../../helper/Global.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-
-import '../../helper/Global.dart';
 
 class PDF extends StatefulWidget {
   const PDF({Key? key}) : super(key: key);
@@ -15,67 +15,190 @@ class PDF extends StatefulWidget {
 }
 
 class _PDFState extends State<PDF> {
-  // final pdf = pw.Document();
-  // @override
-  // void initState() {
-  //   final image = pw.MemoryImage(
-  //     File(Global.pic!.path).readAsBytesSync(),
-  //   );
-  //   super.initState();
-  //   pdf.addPage(pw.Page(
-  //       pageFormat: PdfPageFormat.a4,
-  //       build: (pw.Context context) {
-  //         return pw.Column(
-  //           children: [
-  //             pw.Container(
-  //               height: 150,
-  //               width: 450,
-  //               child: pw.Column(
-  //                 children: [
-  //                   pw.Row(
-  //                     children: [
-  //                       pw.Padding(
-  //                         padding: const pw.EdgeInsets.only(top: 10, right: 10),
-  //                         child: pw.Container(
-  //                           height: 120,
-  //                           width: 120,
-  //                           child: pw.Image(image, fit: pw.BoxFit.cover),
-  //                           decoration: const pw.BoxDecoration(),
-  //                         ),
-  //                       ),
-  //                       pw.Padding(
-  //                         padding: const pw.EdgeInsets.only(right: 5),
-  //                         child: pw.SizedBox(
-  //                           height: 120,
-  //                           width: 260,
-  //                           child: pw.Column(
-  //                             mainAxisAlignment:
-  //                                 pw.MainAxisAlignment.spaceAround,
-  //                             children: [
-  //                               pw.Row(
-  //                                 children: [
-  //                                   pw.Padding(
-  //                                     padding:
-  //                                         const pw.EdgeInsets.only(left: 5),
-  //                                     child: pw.Text(Global.companyName,
-  //                                         style:
-  //                                             const pw.TextStyle(fontSize: 13)),
-  //                                   ),
-  //                                 ],
-  //                               ),
-  //                             ],
-  //                           ),
-  //                         ),
-  //                       )
-  //                     ],
-  //                   ),
-  //                 ],
-  //               ),
-  //             ),
-  //           ],
-  //         );
-  //       }));
-  // }
+  final pdf = pw.Document();
+  @override
+  void initState() {
+    final image = pw.MemoryImage(
+      File(Global.pic!.path).readAsBytesSync(),
+    );
+    super.initState();
+    pdf.addPage(pw.Page(
+        pageFormat: PdfPageFormat.a4,
+        build: (pw.Context context) {
+          return pw.Padding(
+            padding: const pw.EdgeInsets.all(10),
+            child: pw.Column(
+              mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+              children: [
+                pw.Container(
+                  margin: const pw.EdgeInsets.all(10),
+                  height: 240,
+                  width: double.infinity,
+                  decoration: const pw.BoxDecoration(
+                      color: PdfColors.blueGrey800,
+                      boxShadow: [
+                        pw.BoxShadow(
+                          color: PdfColors.black,
+                          blurRadius: 3,
+                          spreadRadius: 2,
+                        )
+                      ]),
+                  child: pw.Column(
+                    mainAxisAlignment: pw.MainAxisAlignment.center,
+                    children: [
+                      pw.Image(
+                        image,
+                        width: 100,
+                        height: 100,
+                      ),
+                      pw.Text(
+                        Global.companyName,
+                        style: pw.TextStyle(
+                            color: PdfColors.blueGrey200,
+                            fontWeight: pw.FontWeight.bold),
+                      ),
+                      pw.Text(
+                        Global.tagLine,
+                        style: const pw.TextStyle(color: PdfColors.blueGrey300),
+                      ),
+                    ],
+                  ),
+                ),
+                pw.Container(
+                  margin: const pw.EdgeInsets.all(10),
+                  height: 240,
+                  width: double.infinity,
+                  decoration: const pw.BoxDecoration(
+                      color: PdfColors.blueGrey100,
+                      boxShadow: [
+                        pw.BoxShadow(
+                          color: PdfColors.grey,
+                          blurRadius: 3,
+                          spreadRadius: 2,
+                        )
+                      ]),
+                  child: pw.Column(
+                    mainAxisAlignment: pw.MainAxisAlignment.end,
+                    children: [
+                      pw.Row(
+                        crossAxisAlignment: pw.CrossAxisAlignment.center,
+                        children: [
+                          pw.Container(
+                            height: 20,
+                            width: 20,
+                            color: PdfColors.blueGrey900,
+                          ),
+                          pw.SizedBox(
+                            width: 10,
+                          ),
+                          pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text(
+                                Global.name,
+                                style: pw.TextStyle(
+                                    color: PdfColors.blueGrey700,
+                                    fontWeight: pw.FontWeight.bold,
+                                    fontSize: 15),
+                              ),
+                              pw.Text(
+                                Global.position,
+                                style: const pw.TextStyle(
+                                    color: PdfColors.blueGrey500),
+                              ),
+                            ],
+                          ),
+                          pw.Spacer(),
+                          pw.Image(
+                            image,
+                            width: 50,
+                          ),
+                          pw.SizedBox(
+                            width: 10,
+                          ),
+                        ],
+                      ),
+                      pw.SizedBox(
+                        height: 300,
+                      ),
+                      pw.Container(
+                        margin: const pw.EdgeInsets.all(10),
+                        width: double.infinity,
+                        height: 80,
+                        color: PdfColors.blueGrey900,
+                        child: pw.Column(
+                          mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+                          children: [
+                            pw.Row(
+                              children: [
+                                pw.SizedBox(
+                                  width: 3,
+                                ),
+                                // pw.Icon(
+                                //   pw.Icons.phone_android_outlined,
+                                //   color: PdfColors.blueGrey300,
+                                // ),
+                                pw.SizedBox(
+                                  width: 6,
+                                ),
+                                pw.Text(
+                                  Global.contact,
+                                  style: const pw.TextStyle(
+                                      color: PdfColors.blueGrey100),
+                                ),
+                              ],
+                            ),
+                            pw.Row(
+                              children: [
+                                pw.SizedBox(
+                                  width: 3,
+                                ),
+                                // pw.Icon(pw.Icons.email,
+                                //     color: PdfColors.blueGrey300),
+                                // pw.Icon(
+                                //   pw.Icons.email_outlined,
+                                //   color: PdfColors.blueGrey300,
+                                // ),
+                                pw.SizedBox(
+                                  width: 6,
+                                ),
+                                pw.Text(
+                                  Global.email,
+                                  style: const pw.TextStyle(
+                                      color: PdfColors.blueGrey100),
+                                ),
+                              ],
+                            ),
+                            pw.Row(
+                              children: [
+                                pw.SizedBox(
+                                  width: 3,
+                                ),
+                                // pw.Icon(
+                                //   pw.Icons.location_on_outlined,
+                                //   color: PdfColors.blueGrey300,
+                                // ),
+                                pw.SizedBox(
+                                  width: 6,
+                                ),
+                                pw.Text(
+                                  Global.add,
+                                  style: const pw.TextStyle(
+                                      color: PdfColors.blueGrey100),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          );
+        }));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,18 +235,12 @@ class _PDFState extends State<PDF> {
                     width: width * 0.15,
                     height: height / 10,
                   ),
-                  // SizedBox(
-                  //   height: height * 0.02,
-                  // ),
                   Text(
                     Global.companyName,
                     style: TextStyle(
                         color: Colors.blueGrey.shade200,
                         fontWeight: FontWeight.bold),
                   ),
-                  // SizedBox(
-                  //   height: height / 300,
-                  // ),
                   Text(
                     Global.tagLine,
                     style: TextStyle(color: Colors.blueGrey.shade300),
@@ -190,13 +307,16 @@ class _PDFState extends State<PDF> {
                   Container(
                     margin: const EdgeInsets.all(10),
                     width: width,
-                    height: height * 0.1,
+                    height: height * 0.09,
                     color: Colors.blueGrey.shade900,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Row(
                           children: [
+                            SizedBox(
+                              width: width * 0.01,
+                            ),
                             Icon(
                               Icons.phone_android_outlined,
                               color: Colors.blueGrey.shade300,
@@ -212,6 +332,9 @@ class _PDFState extends State<PDF> {
                         ),
                         Row(
                           children: [
+                            SizedBox(
+                              width: width * 0.01,
+                            ),
                             Icon(
                               Icons.email_outlined,
                               color: Colors.blueGrey.shade300,
@@ -219,14 +342,21 @@ class _PDFState extends State<PDF> {
                             SizedBox(
                               width: width * 0.02,
                             ),
-                            Text(
-                              Global.email,
-                              style: TextStyle(color: Colors.blueGrey.shade100),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Text(
+                                Global.email,
+                                style:
+                                    TextStyle(color: Colors.blueGrey.shade100),
+                              ),
                             ),
                           ],
                         ),
                         Row(
                           children: [
+                            SizedBox(
+                              width: width * 0.01,
+                            ),
                             Icon(
                               Icons.location_on_outlined,
                               color: Colors.blueGrey.shade300,
@@ -242,35 +372,6 @@ class _PDFState extends State<PDF> {
                         ),
                       ],
                     ),
-                    // child: Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    //   children: [
-                    //     Icon(
-                    //       Icons.phone_android_outlined,
-                    //       color: Colors.blueGrey.shade300,
-                    //     ),
-                    //     Text(
-                    //       Global.contact,
-                    //       style: TextStyle(color: Colors.blueGrey.shade100),
-                    //     ),
-                    //     Icon(
-                    //       Icons.email_outlined,
-                    //       color: Colors.blueGrey.shade300,
-                    //     ),
-                    //     Text(
-                    //       Global.email,
-                    //       style: TextStyle(color: Colors.blueGrey.shade100),
-                    //     ),
-                    //     Icon(
-                    //       Icons.location_on_outlined,
-                    //       color: Colors.blueGrey.shade300,
-                    //     ),
-                    //     Text(
-                    //       Global.add,
-                    //       style: TextStyle(color: Colors.blueGrey.shade100),
-                    //     )
-                    //   ],
-                    // ),
                   ),
                 ],
               ),
@@ -278,22 +379,21 @@ class _PDFState extends State<PDF> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xff235566),
+        onPressed: () async {
+          Directory? tempDir = await getExternalStorageDirectory();
 
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: const Color(0xff235566),
-      //   onPressed: () async {
-      //     Directory? tempDir = await getExternalStorageDirectory();
-      //
-      //     File locate = File('${tempDir!.path}/business.pdf');
-      //
-      //     await locate.writeAsBytes(await pdf.save());
-      //   },
-      //   child: const Icon(
-      //     Icons.download,
-      //     color: Colors.white,
-      //     size: 25,
-      //   ),
-      // ),
+          File locate = File('${tempDir!.path}/business.pdf');
+
+          await locate.writeAsBytes(await pdf.save());
+        },
+        child: const Icon(
+          Icons.download,
+          color: Colors.white,
+          size: 25,
+        ),
+      ),
     );
   }
 }
