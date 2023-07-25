@@ -134,13 +134,14 @@ class _PDFState extends State<PDF> {
                                 pw.SizedBox(
                                   width: 3,
                                 ),
-                                // pw.Icon(
-                                //   pw.Icons.phone_android_outlined,
-                                //   color: PdfColors.blueGrey300,
+                                // pw. Icon(
+                                //    Icons.phone_android_outlined,
+                                //    color: PdfColors.blueGrey300,
+                                //  ),
+                                // pw.SizedBox(
+                                //   width: 6,
                                 // ),
-                                pw.SizedBox(
-                                  width: 6,
-                                ),
+
                                 pw.Text(
                                   Global.contact,
                                   style: const pw.TextStyle(
@@ -153,15 +154,14 @@ class _PDFState extends State<PDF> {
                                 pw.SizedBox(
                                   width: 3,
                                 ),
-                                // pw.Icon(pw.Icons.email,
-                                //     color: PdfColors.blueGrey300),
-                                // pw.Icon(
-                                //   pw.Icons.email_outlined,
-                                //   color: PdfColors.blueGrey300,
-                                // ),
-                                pw.SizedBox(
-                                  width: 6,
-                                ),
+                                // pw. Icon(
+                                //    Icons.email_outlined,
+                                //    color: PdfColors.blueGrey300,
+                                //  ),
+                                //  pw.SizedBox(
+                                //    width:6,
+                                //  ),
+
                                 pw.Text(
                                   Global.email,
                                   style: const pw.TextStyle(
@@ -174,13 +174,13 @@ class _PDFState extends State<PDF> {
                                 pw.SizedBox(
                                   width: 3,
                                 ),
-                                // pw.Icon(
-                                //   pw.Icons.location_on_outlined,
-                                //   color: PdfColors.blueGrey300,
-                                // ),
-                                pw.SizedBox(
-                                  width: 6,
-                                ),
+                                // pw. Icon(
+                                //    Icons.location_on_outlined,
+                                //    color: PdfColors.blueGrey300,
+                                //  ),
+                                //  pw.SizedBox(
+                                //    width: 6,
+                                //  ),
                                 pw.Text(
                                   Global.add,
                                   style: const pw.TextStyle(
